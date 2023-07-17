@@ -1,0 +1,136 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Bari Electro Control</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/headers/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <style>
+      .Logo {
+        position: fixed;
+        top: 10px;
+        left: 50px;
+        width: 20%;
+      }
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+       .nav .active {
+            color: #fff;
+            background-color: #007bff;
+        }
+      }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="headers.css" rel="stylesheet">
+    <link href="signin.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+
+<main>
+    <section>
+        <p th:text=${mensaje}></p>
+        <div class="container">
+            <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+                <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+                </a>
+
+                <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="#" class="nav-link px-2 link-secondary active">Inicio</a></li>
+                    <li><a href="#" class="nav-link px-2 link-dark">Clientes</a></li>
+                    <li><a href="#" class="nav-link px-2 link-dark">Pedidos</a></li>
+                    <li><a href="#" class="nav-link px-2 link-dark">Empleados</a></li>
+                    <li><a href="#" class="nav-link px-2 link-dark">Dashboard</a></li>
+                    <li><a href="#" class="nav-link px-2 link-dark">Usuarios</a></li>
+                </ul>
+
+                <div class="col-md-3 text-end">
+                    <button id="sign-out-btn" type="button" class="btn btn-primary">Sign-in</button>
+                </div>
+
+            </header>
+
+            <img src="BEC-.png" class="Logo" alt="...">
+
+            <form>
+                <div class="form-floating">
+                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+                    <label for="floatingInput">Usuario</label>
+                </div>
+                <div class="form-floating">
+                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+                    <label for="floatingPassword">Password</label>
+                </div>
+                <div class="error-message" id="loginErrorMessage" style="color: red; margin-top: 5px;"></div>
+                <button class="w-100 btn btn-lg btn-primary" type="button" onclick="login()">Sign in</button>
+            </form>
+
+        </div>
+
+    </section>
+</main>
+
+<footer>
+    <p class="mt-3 mb-3 text-muted">&copy; Equipo 14</p>
+    <img src="Logo.png" class="LOGOIMG" alt="...">
+</footer>
+<script src="bootstrap.bundle.min.js"></script>
+
+<script>
+  function login() {
+    var username = document.getElementById('floatingInput').value;
+    var password = document.getElementById('floatingPassword').value;
+
+    if (username === '' || password === '') {
+      document.getElementById('loginErrorMessage').textContent = 'Por favor, ingresa el nombre de usuario y la contraseña.';
+      return;
+    }
+
+    var usuario = {
+      usuario: username,
+      passw: password
+    };
+
+    fetch('/usuario/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(usuario)
+    })
+    .then(function(response) {
+      if (response.ok) {
+        window.location.href = 'cliente.html';
+      } else {
+        document.getElementById('loginErrorMessage').textContent = 'Credenciales inválidas. Por favor, verifica el nombre de usuario y la contraseña.';
+      }
+    })
+    .catch(function(error) {
+      console.log('Error:', error);
+    });
+  }
+</script>
+
+</body>
+
+</html>

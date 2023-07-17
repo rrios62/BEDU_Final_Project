@@ -1,0 +1,159 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Bari Electro Control</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+   <!--<link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/headers/">-->
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .Logo {
+        position: fixed;
+        top: 10px; 
+        left: 50px; 
+        width: 20%;
+      }
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    <!-- Custom styles for this template -->
+    <link href="../static/headers.css" rel="stylesheet">
+    <link href="../static/signin.css" rel="stylesheet">
+    <link href="../static/style.css" rel="stylesheet">
+
+  </head>
+  <body>
+    
+
+<main>
+  <section>
+  <div class="container">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+      </a>
+
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="#" class="nav-link px-2 link-secondary">Inicio</a></li>
+        <li><a href="clientes.html" class="nav-link px-2 link-dark">Clientes</a></li>
+        <li><a href="pedidos.html" class="nav-link px-2 link-dark">Pedidos</a></li>
+        <li><a href="empleados.html" class="nav-link px-2 link-dark">Empleados</a></li>
+        <li><a href="Dashboard.html" class="nav-link px-2 link-dark">Dashboard</a></li>
+      </ul>
+
+      <div class="col-md-3 text-end">
+          <button type="button" class="btn btn-primary">Sign-out</button>
+      </div>
+    </header>
+
+    <img src="../images/BEC-.png" class="Logo" alt="...">
+
+    <h1>Agregar empleado:</h1>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">Nombre</span>
+      <input type="text" class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1">
+    </div>
+    
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon2">Cargo</span>
+      <input type="text" class="form-control" placeholder="Cargo" aria-label=Cargo" aria-describedby="basic-addon2">
+    </div>
+    
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon3">Teléfono</span>
+      <input type="text" class="form-control" placeholder="Teléfono" aria-label="Teléfono" aria-describedby="basic-addon3">
+    </div>
+
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon4">Actividad</span>
+        <input type="text" class="form-control" placeholder="Actividad" aria-label="Actividad" aria-describedby="basic-addon3">
+    </div>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon5">Número de empleado</span>
+      <input type="text" class="form-control" placeholder="Número de empleado" aria-label="Número de empleado" aria-describedby="basic-addon3">
+    </div>
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Guardar</button>
+
+  </div>
+  <div class="container">
+    <h1>Registros de clientes:</h1>
+    <table class="table table-striped table-hover table-bordered border-primary">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Cargo</th>
+        <th scope="col">Teléfono</th>
+        <th scope="col">Actividad</th>
+        <th scope="col">Número de empleado</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td>Rios Inc.</td>
+        <td>Aaron Ríos Avila</td>
+        <td>aaron.rios@gmail.com</td>
+        <td>1234567890</td>
+        <td>Cantaros # 4505</td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td>ERA</td>
+        <td>Elizabeth Ríos AVila</td>
+        <td>era@mail.com</td>
+        <td>9876543210</td>
+        <td>Ciudad Universitaria # 4505
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td>Lukasoft</td>
+        <td>Nelly Ríos Avila</td>
+        <td>nelly@mail.com</td>
+        <td>1111222200</td>
+        <td>Tlaquepaque, Jalisco</td>
+      </tr>
+
+      </tbody>
+    </table>
+
+    </div>
+
+
+  </section>
+
+</main>
+  
+  <footer>
+    <p class="mt-5 mb-3 text-muted">&copy; Equipo 14</p>
+    <img src="../images/Logo.png" class="LOGOIMG" alt="...">
+  </footer>
+  <script src="../static/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>

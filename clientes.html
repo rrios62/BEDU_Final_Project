@@ -1,0 +1,188 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Bari Electro Control</title>
+
+
+
+   <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/headers/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .Logo {
+        position: fixed;
+        top: 10px; 
+        left: 50px; 
+        width: 20%;
+      }
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    <!-- Custom styles for this template -->
+    <link href="../static/headers.css" rel="stylesheet">
+    <link href="../static/signin.css" rel="stylesheet">
+    <link href="../static/style.css" rel="stylesheet">
+  </head>
+  <body>
+    
+
+<main>
+  <section>
+  <div class="container">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+      </a>
+
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="#" class="nav-link px-2 link-secondary">Inicio</a></li>
+        <li><a href="clientes.html" class="nav-link px-2 link-dark">Clientes</a></li>
+        <li><a href="pedidos.html" class="nav-link px-2 link-dark">Pedidos</a></li>
+        <li><a href="empleados.html" class="nav-link px-2 link-dark">Empleados</a></li>
+        <li><a href="Dashboard.html" class="nav-link px-2 link-dark">Dashboard</a></li>
+      </ul>
+
+      <div class="col-md-3 text-end">
+          <button type="button" class="btn btn-primary">Sign-out</button>
+      </div>
+    </header>
+    <img src="../images/BEC-.png" class="Logo" alt="...">
+
+  <form action="\cliente" method="post">
+    <h1>Agregar cliente:</h1>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon1">Cliente</span>
+      <input type="text" id="cliente" class="form-control" placeholder="Cliente" aria-label="Cliente" aria-describedby="basic-addon1">
+    </div>
+    
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon3">Contacto</span>
+      <input type="text" id="Contacto" class="form-control" placeholder="Contacto" aria-label=Contacto" aria-describedby="basic-addon2">
+    </div>
+    
+    <div class="input-group mb-3">
+      <input type="text" id="Correo_C" class="form-control" placeholder="Correo Contacto" aria-label="Correo Contacto" aria-describedby="basic-addon3">
+      <span class="input-group-text" id="basic-addon4">nombre@example.com</span>
+    </div>
+
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon5">Teléfono</span>
+      <input type="text" id="Telefono" class="form-control" placeholder="Teléfono" aria-label="Teléfono" aria-describedby="basic-addon3">
+    </div>
+
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon6">Dirección</span>
+        <input type="text" id="Direccion" class="form-control" placeholder="Dirección" aria-label="Dirección" aria-describedby="basic-addon3">
+    </div>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Guardar</button>
+    </div>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+
+</script>
+
+  <div class="container">
+    <h1>Registros de clientes:</h1>
+    <table class="table table-striped table-hover table-bordered border-primary">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Cliente</th>
+        <th scope="col">Contacto</th>
+        <th scope="col">Correo</th>
+        <th scope="col">Teléfono</th>
+        <th scope="col">Dirección</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td > </td>
+        <td>Aaron Ríos Avila</td>
+        <td>aaron.rios@gmail.com</td>
+        <td>1234567890</td>
+        <td>Cantaros # 4505</td>
+      </tr>
+
+      </tbody>
+    </table>
+
+
+    </div>
+
+  </section>
+
+</main>
+
+
+$(document).ready(function() {
+$('form').submit(function(event) {
+event.preventDefault(); // Evita que se envíe el formulario por defecto
+
+// Obtiene los valores de los inputs
+var cliente = $('#cliente').val();
+var contacto = $('#Contacto').val();
+var Correo = $('#Correo_C').val();
+var Telefono = $('#Telefono').val();
+var Direccion = $('#Direccion').val();
+
+// Obtén los valores de los demás inputs de la misma manera
+
+// Crea un objeto con los datos del formulario
+var formData = {
+nombre: cliente,
+contacto: contacto,
+correoContacto: Correo,
+telefono: Telefono,
+direccion: Direccion
+// Agrega los demás campos del formulario aquí
+};
+
+// Realiza una solicitud AJAX POST al controlador
+$.ajax({
+type: 'POST',
+url: '/cliente',
+contentType: 'application/json',
+data: JSON.stringify(formData),
+success: function() {
+// La solicitud se ha realizado con éxito
+alert('Cliente guardado correctamente');
+// Aquí puedes realizar acciones adicionales después de guardar el cliente
+},
+error: function() {
+// Ocurrió un error al realizar la solicitud
+alert('Error al guardar el cliente');
+}
+});
+});
+});
+
+
+<footer>
+  <p class="mt-5 mb-3 text-muted">&copy; Equipo 14</p>
+  <img src="../images/Logo.png" class="LOGOIMG" alt="...">
+</footer>
+<script src="../static/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

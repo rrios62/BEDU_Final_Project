@@ -1,0 +1,369 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Bari Electro Control</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      .Logo {
+        position: fixed;
+        top: 10px; 
+        left: 50px; 
+        width: 20%;
+      }
+
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      .nav .active {
+          color: #fff;
+          background-color: #007bff;
+        }
+      }
+    </style>
+
+    <!-- Custom styles for this template -->
+    <link href="headers.css" rel="stylesheet">
+    <link href="signin.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+    
+
+<main>
+  <section>
+  <div class="container">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+      </a>
+
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="#" class="nav-link px-2 link-secondary">Inicio</a></li>
+        <li><a href="cliente.html" class="nav-link px-2 link-dark">Clientes</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark active">Pedidos</a></li>
+        <li><a href="empleado.html" class="nav-link px-2 link-dark">Empleados</a></li>
+        <li><a href="Dashboard.html" class="nav-link px-2 link-dark">Dashboard</a></li>
+        <li><a href="usuario.html" class="nav-link px-2 link-dark">Usuarios</a></li>
+      </ul>
+
+      <div class="col-md-3 text-end">
+        <button id="sign-out-btn" type="button" class="btn btn-primary">Sign-out</button>
+      </div>
+
+    </header>
+
+    <img src="BEC-.png" class="Logo" alt="...">
+
+    <h1>Agregar pedido:</h1>
+
+    <!-- ////////////////////////////////////////////AREA COMÚN/////////////////////////////////// -->
+
+    <div class="container">
+      <form action="\pedido" method="post">
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Cliente</span>
+            <input type="text" id="Cliente" class="form-control" placeholder="Cliente" aria-label="Cliente" aria-describedby="basic-addon1">
+
+            <span class="input-group-text" id="basic-addon4">Equipo</span>
+            <input type="text" id=Equipo class="form-control" placeholder="Equipo" aria-label="Equipo" aria-describedby="basic-addon3">
+
+            <span class="input-group-text" id="basic-addon2">Fecha</span>
+            <input type="text" id=Fecha class="form-control" placeholder="Fecha" aria-label="Fecha" aria-describedby="basic-addon2">
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon6">Potencia</span>
+            <input type="text" id= Potencia class="form-control" placeholder="Potencia" aria-label="Potencia" aria-describedby="basic-addon6">
+
+            <span class="input-group-text" id="basic-addon7">Unidad de medida</span>
+            <input type="text" id= UdeM class="form-control" placeholder="Unidad de Medida" aria-label="Unidad de medida" aria-describedby="basic-addon7">
+
+            <span class="input-group-text" id="basic-addon8">R.P.M.</span>
+            <input type="text" id=RPM class="form-control" placeholder="RPM" aria-label="RPM" aria-describedby="basic-addon8">
+
+            <span class="input-group-text" id="basic-addon9">Frecuencia</span>
+            <input type="text" id= Frecuencia class="form-control" placeholder="Frecuencia" aria-label="Frecuencia" aria-describedby="basic-addon9">
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon10">Amperes</span>
+            <input type="text" id=Amperes class="form-control" placeholder="Amperes" aria-label="Amperes" aria-describedby="basic-addon10">
+
+            <span class="input-group-text" id="basic-addon11">Armazón</span>
+            <input type="text" id= Armazon class="form-control" placeholder="Armazón" aria-label="Armazón" aria-describedby="basic-addon11">
+
+            <span class="input-group-text" id="basic-addon12">Marca</span>
+            <input type="text" id= Marca class="form-control" placeholder="Marca" aria-label="Marca" aria-describedby="basic-addon12">
+
+            <span class="input-group-text" id="basic-addon13">Serie</span>
+            <input type="text" id= Serie class="form-control" placeholder="Serie" aria-label="Serie" aria-describedby="basic-addon13">
+          </div>
+
+          <h1>Trabajo:</h1>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon14">Desensamblaje</span>
+            <input type="text" id= Desensamble class="form-control" placeholder="Desensamblaje" aria-label="Desensamblaje" aria-describedby="basic-addon14">
+
+            <span class="input-group-text" id="basic-addon15">Ensamblaje</span>
+            <input type="text" id=Ensamble class="form-control" placeholder="Ensamblaje" aria-label="Ensamblaje" aria-describedby="basic-addon15">
+
+            <span class="input-group-text" id="basic-addon16">Embobinado</span>
+            <input type="text" id=Embobinado class="form-control" placeholder="Embobinado" aria-label="Embobinado" aria-describedby="basic-addon16">
+
+            <span class="input-group-text" id="basic-addon17">Pruebas</span>
+            <input type="text" id=Pruebas class="form-control" placeholder="Pruebas" aria-label="Pruebas" aria-describedby="basic-addon17">
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon18">Notas</span>
+            <input type="text" id= Notas class="form-control" placeholder="Notas" aria-label="Notas" aria-describedby="basic-addon14">
+          </div>
+
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon19">Estatus</span>
+            <input type="text" id= Estatus class="form-control" placeholder="Estatus" aria-label="Estatus" aria-describedby="basic-addon15">
+
+            <span class="input-group-text" id="basic-addon20">Factura</span>
+            <input type="text" id=Factura class="form-control" placeholder="Factura" aria-label="Factura" aria-describedby="basic-addon16">
+          </div>
+
+          <div class="input-group mb-3">
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Guardar</button>
+          </div>
+      </form>
+
+      <div class="container2">
+        <h1>Registros de pedidos:</h1>
+        <table class="table table-striped table-hover table-bordered border-primary">
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Cliente</th>
+            <th scope="col">Contacto</th>
+            <th scope="col">Equipo</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Potencia</th>
+            <th scope="col">U. de medida</th>
+            <th scope="col">R.P.M.</th>
+            <th scope="col">Frecuencia</th>
+            <th scope="col">Amperes</th>
+            <th scope="col">Armazón</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Serie</th>
+            <th scope="col">Desensamblaje</th>
+            <th scope="col">Ensamblaje</th>
+            <th scope="col">Embobinado</th>
+            <th scope="col">Pruebas</th>
+            <th scope="col">Notas</th>
+            <th scope="col">Estatus</th>
+            <th scope="col">Factura</th>
+            <th scope="col">Eliminar</th>
+          </tr>
+          </thead>
+          <tbody>
+            <td>
+              <button class="btn btn-danger eliminar" data-id="' + cliente.id + '">Eliminar</button>
+            </td>
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- ////////////////////////////////////////////AREA COMÚN/////////////////////////////////// -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+$(document).ready(function() {
+$('form').submit(function(event)
+  {
+          event.preventDefault(); // Evita que se envíe el formulario por defecto
+
+          // Obtiene los valores de los inputs
+             var Cliente = $('#Cliente').val();
+             var Equipo = $('#Equipo').val();
+             var Fecha = $('#Fecha').val();
+             var Potencia = $('#Potencia').val();
+             var UdeM = $('#UdeM').val();
+             var RPM = $('#RPM').val();
+             var Frecuencia = $('#Frecuencia').val();
+             var Amperes = $('#Amperes').val();
+             var Armazon = $('#Armazon').val();
+             var Marca = $('#Marca').val();
+             var Serie = $('#Serie').val();
+             var Desensamble = $('#Desensamble').val();
+             var Ensamble = $('#Ensamble').val();
+             var Embobinado = $('#Embobinado').val();
+             var Pruebas = $('#Pruebas').val();
+             var Notas = $('#Notas').val();
+             var Estatus = $('#Estatus').val();
+             var Factura = $('#Factura').val();
+
+             // Crea un objeto con los datos del formulario
+             var formData =
+                  {
+                      cliente: Cliente,
+                      equipo: Equipo,
+                      fecha: Fecha,
+                      potencia: Potencia,
+                      unidadMedida: UdeM,
+                      rpm:RPM,
+                      frecuencia: Frecuencia,
+                      amperes: Amperes,
+                      armazon: Armazon,
+                      marca: Marca,
+                      serie: Serie,
+                      desensamble: Desensamble,
+                      ensamble: Ensamble,
+                      embobinado: Embobinado,
+                      pruebas: Pruebas,
+                      notas: Notas,
+                      estatus: Estatus,
+                      factura: Factura
+                  };
+
+                  // Realiza una solicitud AJAX POST al controlador
+                  $.ajax({
+                          type: 'POST',
+                          url: '/pedido',
+                          contentType: 'application/json',
+                          data: JSON.stringify(formData),
+                          success: function()
+                                 {
+                                     // La solicitud se ha realizado con éxito
+                                     alert('Pedido guardado correctamente');
+                                 },
+                                  error: function()
+                                        {
+                                          // Ocurrió un error al realizar la solicitud
+                                          alert('Error al guardar el pedido');
+                                        }
+                                  });
+                          });
+  });
+
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+  // Función para obtener y mostrar los registros de pedidos en la tabla
+  function obtenerRegistrosPedidos(){
+    $.ajax({
+            type: 'GET',
+            url: '/pedido',
+            success: function(data)
+                    {
+                      // Borra las filas existentes en la tabla
+                      $('tbody').empty();
+
+                      // Itera sobre los registros de pedidos y agrega las filas a la tabla
+                      $.each(data, function(index, pedido)
+                            {
+                               var fila = '<tr>' +
+                               '<th scope="row">' + (index + 1) + '</th>' +
+                               '<td>' + pedido.cliente + '</td>' +
+                               '<td>' + pedido.equipo + '</td>' +
+                               '<td>' + pedido.fecha + '</td>' +
+                               '<td>' + pedido.potencia + '</td>' +
+                               '<td>' + pedido.unidadMedida + '</td>' +
+                               '<td>' + pedido.rpm + '</td>' +
+                               '<td>' + pedido.frecuencia + '</td>' +
+                               '<td>' + pedido.amperes + '</td>' +
+                               '<td>' + pedido.armazon + '</td>' +
+                               '<td>' + pedido.marca + '</td>' +
+                               '<td>' + pedido.serie + '</td>' +
+                               '<td>' + pedido.frecuencia + '</td>' +
+                               '<td>' + pedido.desensamble + '</td>' +
+                               '<td>' + pedido.ensamble + '</td>' +
+                               '<td>' + pedido.embobinado + '</td>' +
+                               '<td>' + pedido.pruebas + '</td>' +
+                               '<td>' + pedido.notas + '</td>' +
+                               '<td>' + pedido.status + '</td>' +
+                               '<td>' + pedido.factura + '</td>' +
+                               '<td><button class="btn btn-danger eliminar" data-id="' + pedido.id + '">Eliminar</button></td>' +
+                               '</tr>';
+                               $('tbody').append(fila);
+                                        });
+                                        },
+                                        error: function()
+                                             {
+                                               // Ocurrió un error al obtener los registros de clientes
+                                               alert('Error al obtener los registros de clientes');
+                                             }
+                                             });
+                                             }
+
+                               // Llama a la función para obtener y mostrar los registros de clientes al cargar la página
+                               obtenerRegistrosPedidos();
+
+                               // Función para eliminar la fila de la tabla correspondiente al cliente eliminado
+                               function eliminarFilaPedido(clienteId) {
+                                      $('tbody').find('button[data-id="' + pedidoId + '"]').closest('tr').remove();
+                                      }
+
+                               // Evento para escuchar el clic en el botón "Eliminar" de cada fila de pedido y eliminar el pedido correspondiente
+                               $(document).on('click', 'button.eliminar', function() {
+                               var pedidoId = $(this).data('id');
+
+                               // Realiza una solicitud DELETE al controlador para eliminar el cliente
+                               $.ajax({
+                                       type: 'DELETE',
+                                       url: '/pedido/' + pedidoId,
+                                       success: function() {
+                                       // La solicitud se ha realizado con éxito
+                                       alert('Pedido eliminado correctamente');
+                                       eliminarFilaPedido(pedidoId);
+                                       },
+                                       error: function() {
+                                             // Ocurrió un error al eliminar el pedido
+                                             alert('Error al eliminar el pedido');
+                                             }
+                                             });
+                                             });
+                                      });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('#sign-out-btn').click(function() {
+    window.location.href = 'inicio.html';  // Redirige a la página "inicio.html"
+    alert('Has cerrado sesión');
+  });
+});
+</script>
+
+<footer>
+    <p class="mt-3 mb-3 text-muted">&copy; Equipo 14</p>
+    <img src="Logo.png" class="LOGOIMG" alt="...">
+  </footer>
+  <script src="bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
