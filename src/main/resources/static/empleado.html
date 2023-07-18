@@ -188,14 +188,13 @@ $('form').submit(function(event)
                                   });
                           });
   });
-
-
 </script>
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function() {
   // Función para obtener y mostrar los registros de empleados en la tabla
-  function obtenerRegistrosEmpleados() {
+  function obtenerRegistrosempleados() {
     $.ajax({
       type: 'GET',
       url: '/empleado',
@@ -208,12 +207,12 @@ $(document).ready(function() {
           var fila = '<tr>' +
             '<th scope="row">' + (index + 1) + '</th>' +
             '<td>' + empleado.nombreEmpleado + '</td>' +
-             '<td>' + empleado.cargo + '</td>' +
-             '<td>' + empleado.telefono + '</td>' +
-             '<td>' + empleado.actividad + '</td>' +
-             '<td>' + empleado.numeroEmpleado + '</td>'+
+            '<td>' + empleado.cargo + '</td>' +
+            '<td>' + empleado.telefono + '</td>' +
+            '<td>' + empleado.actividad + '</td>' +
+            '<td>' + empleado.numeroEmpleado + '</td>' +
             '<td><button class="btn btn-danger eliminar" data-id="' + empleado.id + '">Eliminar</button></td>' +
-            '</tr>';
+'</tr>';
           $('tbody').append(fila);
         });
       },
@@ -225,10 +224,10 @@ $(document).ready(function() {
   }
 
   // Llama a la función para obtener y mostrar los registros de empleados al cargar la página
-  obtenerRegistrosEmpleados();
+  obtenerRegistrosempleados();
 
-  // Función para eliminar la fila de la tabla correspondiente al empleado eliminado
-  function eliminarFilaEmpleado(empleadoId) {
+   // Función para eliminar la fila de la tabla correspondiente al empleado eliminado
+  function eliminarFilaempleado(empleadoId) {
     $('tbody').find('button[data-id="' + empleadoId + '"]').closest('tr').remove();
   }
 
@@ -242,8 +241,8 @@ $(document).ready(function() {
       url: '/empleado/' + empleadoId,
       success: function() {
         // La solicitud se ha realizado con éxito
-        alert('Empleado eliminado correctamente');
-        eliminarFilaEmpleado(empleadoId);
+        alert('empleado eliminado correctamente');
+        eliminarFilaempleado(empleadoId);
       },
       error: function() {
         // Ocurrió un error al eliminar el empleado
@@ -252,6 +251,7 @@ $(document).ready(function() {
     });
   });
 });
+
 
 </script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

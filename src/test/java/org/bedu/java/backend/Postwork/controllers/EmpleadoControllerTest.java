@@ -50,7 +50,7 @@ class EmpleadoControllerTest {
     @DisplayName("Obtener empleado específico")
     public void testGetEmpleado() throws Exception {
         Empleado empleado = new Empleado();
-            empleado.setIdEmpleado(1L);
+            empleado.setId(1L);
             empleado.setNombreEmpleado("Aaron Ríos");
             empleado.setCargo("Gerente");
             empleado.setTelefono("1234567890");
@@ -60,7 +60,7 @@ class EmpleadoControllerTest {
 
         mockMvc.perform(get("/empleado/1"))
                 .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.idEmpleado").value(empleado.getIdEmpleado()))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(empleado.getId()))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.nombreEmpleado").value(empleado.getNombreEmpleado()))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.cargo").value(empleado.getCargo()))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.telefono").value(empleado.getTelefono()))
@@ -68,7 +68,7 @@ class EmpleadoControllerTest {
                 .andExpect(MockMvcResultMatchers.jsonPath("$.numeroEmpleado").value(empleado.getNumeroEmpleado()))
                 .andDo(document("empleado/get-empleado",
                         responseFields(
-                                fieldWithPath("idEmpleado").description("ID del empleado"),
+                                fieldWithPath("id").description("ID del empleado"),
                                 fieldWithPath("nombreEmpleado").description("Nombre del empleado"),
                                 fieldWithPath("cargo").description("Cargo del empleado"),
                                 fieldWithPath("telefono").description("Teléfono del empleado"),
@@ -83,19 +83,19 @@ class EmpleadoControllerTest {
     public void testGetEmpleados() throws Exception {
 
         List<Empleado> empleados = Arrays.asList(
-                Empleado.builder().idEmpleado(1L).nombreEmpleado("Aaron Ríos").cargo("Gerente").telefono("1234567890").actividad("Supervisión").numeroEmpleado(1234).build(),
-                Empleado.builder().idEmpleado(2L).nombreEmpleado("Nelly Ríos").cargo("Director").telefono("1234567890").actividad("Supervisión").numeroEmpleado(5678).build(),
-                Empleado.builder().idEmpleado(3L).nombreEmpleado("Aaron Ríos").cargo("Gerente").telefono("1234567890").actividad("Supervisión").numeroEmpleado(9123).build()
+                Empleado.builder().id(1L).nombreEmpleado("Aaron Ríos").cargo("Gerente").telefono("1234567890").actividad("Supervisión").numeroEmpleado(1234).build(),
+                Empleado.builder().id(2L).nombreEmpleado("Nelly Ríos").cargo("Director").telefono("1234567890").actividad("Supervisión").numeroEmpleado(5678).build(),
+                Empleado.builder().id(3L).nombreEmpleado("Aaron Ríos").cargo("Gerente").telefono("1234567890").actividad("Supervisión").numeroEmpleado(9123).build()
         );
         given(empleadoService.getEmpleados()).willReturn(empleados);
         mockMvc.perform(MockMvcRequestBuilders.get("/empleado"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$[0].idEmpleado").value(empleados.get(0).getIdEmpleado()))
-                .andExpect(MockMvcResultMatchers.jsonPath("$[1].idEmpleado").value(empleados.get(1).getIdEmpleado()))
-                .andExpect(MockMvcResultMatchers.jsonPath("$[2].idEmpleado").value(empleados.get(2).getIdEmpleado()))
+                .andExpect(MockMvcResultMatchers.jsonPath("$[0].id").value(empleados.get(0).getId()))
+                .andExpect(MockMvcResultMatchers.jsonPath("$[1].id").value(empleados.get(1).getId()))
+                .andExpect(MockMvcResultMatchers.jsonPath("$[2].id").value(empleados.get(2).getId()))
                 .andDo(document("empleado/get-empleados",
                         responseFields(
-                                fieldWithPath("[].idEmpleado").description("ID del empleado"),
+                                fieldWithPath("[].id").description("ID del empleado"),
                                 fieldWithPath("[].nombreEmpleado").description("Nombre del empleado"),
                                 fieldWithPath("[].cargo").description("Cargo del empleado"),
                                 fieldWithPath("[].telefono").description("Teléfono del empleado"),
@@ -108,7 +108,7 @@ class EmpleadoControllerTest {
     @DisplayName("Guardar empleado")
     public void testSaveEmpleado() throws Exception {
         Empleado empleado = new Empleado();
-        empleado.setIdEmpleado(1L);
+        empleado.setId(1L);
         empleado.setNombreEmpleado("Aaron Ríos");
         empleado.setCargo("Gerente");
         empleado.setTelefono("1234567890");

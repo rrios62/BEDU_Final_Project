@@ -28,8 +28,8 @@ public class EmpleadoService {
     }
 
 
-    public Optional<Empleado> getEmpleado(long idEmpleado) {
-        return repository.findById(idEmpleado)
+    public Optional<Empleado> getEmpleado(long id) {
+        return repository.findById(id)
                 .map(empleado -> Optional.of(mapper.empleadoEntityToEmpleadoModel(empleado)))
                 .orElse(Optional.empty());
     }

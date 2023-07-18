@@ -12,7 +12,7 @@ import javax.persistence.*;
 public class Empleado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idEmpleado;
+    private Long id;
 
     @Column(name = "nombre_empleado", nullable = false)
     private String nombreEmpleado;

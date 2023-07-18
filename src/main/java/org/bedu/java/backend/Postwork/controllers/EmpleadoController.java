@@ -39,7 +39,7 @@ public class EmpleadoController {
     @PostMapping//Crear nuevo registro
     public ResponseEntity<Void> saveEmpleado(@RequestBody Empleado empleado) {
         Empleado empleadoNuevo = empleadoService.saveEmpleado(empleado);
-        return ResponseEntity.created(URI.create(String.valueOf(empleadoNuevo.getIdEmpleado()))).build();
+        return ResponseEntity.created(URI.create(String.valueOf(empleadoNuevo.getId()))).build();
     }
 
     @PutMapping("/{empleadoId}")//Actualizar registro

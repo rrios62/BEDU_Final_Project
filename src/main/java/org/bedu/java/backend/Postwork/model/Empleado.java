@@ -14,7 +14,7 @@ public class Empleado {
     @GlobalInterface(validators = {IdValidator.class},
             message = "El identificador del empleado debe ser un número positivo mayor que cero. " +
                     "No se permite utilizar números negativos ni el valor cero como identificador.")
-            private long idEmpleado;
+            private long id;
 
     @GlobalInterface(validators = {NameValidator.class},
             message = "El nombre del empleado es un campo obligatorio y debe tener al menos 3 letras y como máximo 50 letras." +
@@ -40,4 +40,6 @@ public class Empleado {
                     "No se permite utilizar números negativos ni el valor cero como identificador.")
             private int numeroEmpleado;
 
+    public void setId(long id) {
+    }
 }
