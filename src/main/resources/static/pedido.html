@@ -80,57 +80,57 @@
 
           <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">Cliente</span>
-            <input type="text" id="Cliente" class="form-control" placeholder="Cliente" aria-label="Cliente" aria-describedby="basic-addon1">
+            <input type="text" id="Cliente" class="form-control" placeholder="Cliente" aria-label="Cliente" aria-describedby="basic-addon1" required>
 
             <span class="input-group-text" id="basic-addon4">Equipo</span>
-            <input type="text" id=Equipo class="form-control" placeholder="Equipo" aria-label="Equipo" aria-describedby="basic-addon3">
+            <input type="text" id=Equipo class="form-control" placeholder="Equipo" aria-label="Equipo" aria-describedby="basic-addon3" required>
 
             <span class="input-group-text" id="basic-addon2">Fecha</span>
-            <input type="text" id=Fecha class="form-control" placeholder="Fecha" aria-label="Fecha" aria-describedby="basic-addon2">
+            <input type="text" id=Fecha class="form-control" placeholder="Fecha" aria-label="Fecha" aria-describedby="basic-addon2" pattern="\d{2}/\d{2}/\d{4}"
+                   title="Ingrese una fecha válida en el formato dd/mm/yyyy" required>
           </div>
 
           <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon6">Potencia</span>
-            <input type="text" id= Potencia class="form-control" placeholder="Potencia" aria-label="Potencia" aria-describedby="basic-addon6">
-
+            <input type="text" id= Potencia class="form-control" placeholder="Potencia" aria-label="Potencia" aria-describedby="basic-addon6" pattern="[0-9]+" title="Ingrese solo números"required>
             <span class="input-group-text" id="basic-addon7">Unidad de medida</span>
-            <input type="text" id= UdeM class="form-control" placeholder="Unidad de Medida" aria-label="Unidad de medida" aria-describedby="basic-addon7">
+            <input type="text" id= UdeM class="form-control" placeholder="Unidad de Medida" aria-label="Unidad de medida" aria-describedby="basic-addon7" required>
 
             <span class="input-group-text" id="basic-addon8">R.P.M.</span>
-            <input type="text" id=RPM class="form-control" placeholder="RPM" aria-label="RPM" aria-describedby="basic-addon8">
+            <input type="text" id=RPM class="form-control" placeholder="RPM" aria-label="RPM" aria-describedby="basic-addon8" pattern="[0-9]+" title="Ingrese solo números"required>
 
             <span class="input-group-text" id="basic-addon9">Frecuencia</span>
-            <input type="text" id= Frecuencia class="form-control" placeholder="Frecuencia" aria-label="Frecuencia" aria-describedby="basic-addon9">
+            <input type="text" id= Frecuencia class="form-control" placeholder="Frecuencia" aria-label="Frecuencia" aria-describedby="basic-addon9" pattern="[0-9]+" title="Ingrese solo números"required>
           </div>
 
           <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon10">Amperes</span>
-            <input type="text" id=Amperes class="form-control" placeholder="Amperes" aria-label="Amperes" aria-describedby="basic-addon10">
+            <input type="text" id=Amperes class="form-control" placeholder="Amperes" aria-label="Amperes" aria-describedby="basic-addon10" pattern="[0-9]+" title="Ingrese solo números"required>
 
             <span class="input-group-text" id="basic-addon11">Armazón</span>
-            <input type="text" id= Armazon class="form-control" placeholder="Armazón" aria-label="Armazón" aria-describedby="basic-addon11">
+            <input type="text" id= Armazon class="form-control" placeholder="Armazón" aria-label="Armazón" aria-describedby="basic-addon11" required>
 
             <span class="input-group-text" id="basic-addon12">Marca</span>
-            <input type="text" id= Marca class="form-control" placeholder="Marca" aria-label="Marca" aria-describedby="basic-addon12">
+            <input type="text" id= Marca class="form-control" placeholder="Marca" aria-label="Marca" aria-describedby="basic-addon12" required>
 
             <span class="input-group-text" id="basic-addon13">Serie</span>
-            <input type="text" id= Serie class="form-control" placeholder="Serie" aria-label="Serie" aria-describedby="basic-addon13">
+            <input type="text" id= Serie class="form-control" placeholder="Serie" aria-label="Serie" aria-describedby="basic-addon13" required>
           </div>
 
           <h1>Trabajo:</h1>
 
           <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon14">Desensamblaje</span>
-            <input type="text" id= Desensamble class="form-control" placeholder="Desensamblaje" aria-label="Desensamblaje" aria-describedby="basic-addon14">
+            <input type="text" id= Desensamble class="form-control" placeholder="Desensamblaje" aria-label="Desensamblaje" aria-describedby="basic-addon14" required>
 
             <span class="input-group-text" id="basic-addon15">Ensamblaje</span>
-            <input type="text" id=Ensamble class="form-control" placeholder="Ensamblaje" aria-label="Ensamblaje" aria-describedby="basic-addon15">
+            <input type="text" id=Ensamble class="form-control" placeholder="Ensamblaje" aria-label="Ensamblaje" aria-describedby="basic-addon15" required>
 
             <span class="input-group-text" id="basic-addon16">Embobinado</span>
-            <input type="text" id=Embobinado class="form-control" placeholder="Embobinado" aria-label="Embobinado" aria-describedby="basic-addon16">
+            <input type="text" id=Embobinado class="form-control" placeholder="Embobinado" aria-label="Embobinado" aria-describedby="basic-addon16" required>
 
             <span class="input-group-text" id="basic-addon17">Pruebas</span>
-            <input type="text" id=Pruebas class="form-control" placeholder="Pruebas" aria-label="Pruebas" aria-describedby="basic-addon17">
+            <input type="text" id=Pruebas class="form-control" placeholder="Pruebas" aria-label="Pruebas" aria-describedby="basic-addon17" required>
           </div>
 
           <div class="input-group mb-3">
@@ -143,7 +143,7 @@
             <input type="text" id= Estatus class="form-control" placeholder="Estatus" aria-label="Estatus" aria-describedby="basic-addon15">
 
             <span class="input-group-text" id="basic-addon20">Factura</span>
-            <input type="text" id=Factura class="form-control" placeholder="Factura" aria-label="Factura" aria-describedby="basic-addon16">
+            <input type="text" id=Factura class="form-control" placeholder="Factura" aria-label="Factura" aria-describedby="basic-addon16" required>
           </div>
 
           <div class="input-group mb-3">

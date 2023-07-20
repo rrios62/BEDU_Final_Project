@@ -81,25 +81,26 @@
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Cliente</span>
                     <input type="text" id="cliente" class="form-control" placeholder="Cliente" aria-label="Cliente"
-                           aria-describedby="basic-addon1">
+                           aria-describedby="basic-addon1" required>
                 </div>
 
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon3">Contacto</span>
                     <input type="text" id="Contacto" class="form-control" placeholder="Contacto" aria-label=Contacto"
-                           aria-describedby="basic-addon2">
+                           aria-describedby="basic-addon2" required>
                 </div>
 
                 <div class="input-group mb-3">
-                    <input type="text" id="Correo_C" class="form-control" placeholder="Correo Contacto"
-                           aria-label="Correo Contacto" aria-describedby="basic-addon3">
+                    <input type="text" id="Correo_C" class="form-control" placeholder="Correo Electrónico"
+                           aria-label="Correo Electrónico" aria-describedby="basic-addon3" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                           title="Ingrese un correo electrónico válido" required>
                     <span class="input-group-text" id="basic-addon4">nombre@example.com</span>
                 </div>
 
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon5">Teléfono</span>
                     <input type="text" id="Telefono" class="form-control" placeholder="Teléfono" aria-label="Teléfono"
-                           aria-describedby="basic-addon3">
+                           aria-describedby="basic-addon3" pattern="[0-9]{10}" title="Ingrese 10 dígitos numéricos" required>
                 </div>
 
                 <div class="input-group mb-3">
@@ -174,6 +175,7 @@ data: JSON.stringify(formData),
 success: function() {
 // La solicitud se ha realizado con éxito
 alert('Cliente guardado correctamente');
+location.reload();
 },
 error: function() {
 // Ocurrió un error al realizar la solicitud

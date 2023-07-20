@@ -75,17 +75,22 @@
                 <h1>Agregar usuario:</h1>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Usuario</span>
-                    <input type="text" id="Usuario" class="form-control" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon1">
+                    <input type="text" id="Usuario" class="form-control" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon1" required>
                 </div>
 
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon3">Contraseña</span>
-                    <input type="text" id="Passw" class="form-control" placeholder="Contraseña" aria-label="Contraseña" aria-describedby="basic-addon2">
+                    <input type="text" id="Passw" class="form-control" placeholder="Contraseña" aria-label="Contraseña" aria-describedby="basic-addon2" required>
                 </div>
 
+
                 <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon4">Rol</span>
-                    <input type="text" id="Rol" class="form-control" placeholder="Rol" aria-label="Rol" aria-describedby="basic-addon4">
+                    <span class="input-group-text" id="basic-addon13">Tipo de usuario</span>
+                    <select id="Rol" class="form-select" aria-label="Fecha" required>
+                        <option value="" selected disabled>Seleccione los privilegios de usuario</option>
+                        <option value="Administrador">Administrador</option>
+                        <option value="Usuario estándar">Usuario</option>
+                    </select>
                 </div>
 
                 <div class="input-group mb-3">
