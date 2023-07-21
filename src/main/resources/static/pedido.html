@@ -1,5 +1,5 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
+<html xmlns="http://www.w3.org/1999/html" lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,7 +8,6 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <!-- Bootstrap core CSS -->
     <link href="bootstrap.min.css" rel="stylesheet">
 
     <style>
@@ -38,7 +37,6 @@
       }
     </style>
 
-    <!-- Custom styles for this template -->
     <link href="headers.css" rel="stylesheet">
     <link href="signin.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
@@ -74,8 +72,6 @@
     <h1>Agregar pedido:</h1>
 
     <!-- ////////////////////////////////////////////AREA COMÚN/////////////////////////////////// -->
-
-    <div class="container">
       <form action="\pedido" method="post">
 
           <div class="input-group mb-3">
@@ -92,20 +88,20 @@
 
           <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon6">Potencia</span>
-            <input type="text" id= Potencia class="form-control" placeholder="Potencia" aria-label="Potencia" aria-describedby="basic-addon6" pattern="[0-9]+" title="Ingrese solo números"required>
+            <input type="text" id= Potencia class="form-control" placeholder="Potencia" aria-label="Potencia" aria-describedby="basic-addon6" pattern="[0-9]+" title="Ingrese solo números" required>
             <span class="input-group-text" id="basic-addon7">Unidad de medida</span>
             <input type="text" id= UdeM class="form-control" placeholder="Unidad de Medida" aria-label="Unidad de medida" aria-describedby="basic-addon7" required>
 
             <span class="input-group-text" id="basic-addon8">R.P.M.</span>
-            <input type="text" id=RPM class="form-control" placeholder="RPM" aria-label="RPM" aria-describedby="basic-addon8" pattern="[0-9]+" title="Ingrese solo números"required>
+            <input type="text" id=RPM class="form-control" placeholder="RPM" aria-label="RPM" aria-describedby="basic-addon8" pattern="[0-9]+" title="Ingrese solo números" required>
 
             <span class="input-group-text" id="basic-addon9">Frecuencia</span>
-            <input type="text" id= Frecuencia class="form-control" placeholder="Frecuencia" aria-label="Frecuencia" aria-describedby="basic-addon9" pattern="[0-9]+" title="Ingrese solo números"required>
+            <input type="text" id= Frecuencia class="form-control" placeholder="Frecuencia" aria-label="Frecuencia" aria-describedby="basic-addon9" pattern="[0-9]+" title="Ingrese solo números" required>
           </div>
 
           <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon10">Amperes</span>
-            <input type="text" id=Amperes class="form-control" placeholder="Amperes" aria-label="Amperes" aria-describedby="basic-addon10" pattern="[0-9]+" title="Ingrese solo números"required>
+            <input type="text" id=Amperes class="form-control" placeholder="Amperes" aria-label="Amperes" aria-describedby="basic-addon10" pattern="[0-9]+" title="Ingrese solo números" required>
 
             <span class="input-group-text" id="basic-addon11">Armazón</span>
             <input type="text" id= Armazon class="form-control" placeholder="Armazón" aria-label="Armazón" aria-describedby="basic-addon11" required>
@@ -119,19 +115,27 @@
 
           <h1>Trabajo:</h1>
 
-          <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon14">Desensamblaje</span>
-            <input type="text" id= Desensamble class="form-control" placeholder="Desensamblaje" aria-label="Desensamblaje" aria-describedby="basic-addon14" required>
+        <div class="input-group mb-3">
+          <span class="input-group-text" id="basic-addon14">Desensamblaje</span>
+          <select id="Desensamble" class="form-control" required>
 
-            <span class="input-group-text" id="basic-addon15">Ensamblaje</span>
-            <input type="text" id=Ensamble class="form-control" placeholder="Ensamblaje" aria-label="Ensamblaje" aria-describedby="basic-addon15" required>
+          </select>
 
-            <span class="input-group-text" id="basic-addon16">Embobinado</span>
-            <input type="text" id=Embobinado class="form-control" placeholder="Embobinado" aria-label="Embobinado" aria-describedby="basic-addon16" required>
+          <span class="input-group-text" id="basic-addon15">Ensamblaje</span>
+          <select id="Ensamble" class="form-control" required>
 
-            <span class="input-group-text" id="basic-addon17">Pruebas</span>
-            <input type="text" id=Pruebas class="form-control" placeholder="Pruebas" aria-label="Pruebas" aria-describedby="basic-addon17" required>
-          </div>
+          </select>
+
+          <span class="input-group-text" id="basic-addon16">Embobinado</span>
+          <select id="Embobinado" class="form-control" required>
+
+          </select>
+
+          <span class="input-group-text" id="basic-addon17">Pruebas</span>
+          <select id="Pruebas" class="form-control" required>
+
+          </select>
+        </div>
 
           <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon18">Notas</span>
@@ -179,14 +183,16 @@
           </tr>
           </thead>
           <tbody>
+            <tr>
             <td>
               <button class="btn btn-danger eliminar" data-id="' + cliente.id + '">Eliminar</button>
             </td>
+            </tr>
           </tbody>
         </table>
 
       </div>
-    </div>
+
 
     </div>
   </section>
@@ -196,91 +202,114 @@
 <!-- ////////////////////////////////////////////AREA COMÚN/////////////////////////////////// -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
+  $(document).ready(function() {
+    function obtenerRegistrosEmpleados() {
+      $.ajax({
+        type: 'GET',
+        url: '/empleado',
+        success: function(data) {
+          var selectDesensamble = $('#Desensamble');
+          var selectEnsamble = $('#Ensamble');
+          var selectEmbobinado = $('#Embobinado');
+          var selectPruebas = $('#Pruebas');
 
-$(document).ready(function() {
-$('form').submit(function(event)
-  {
-          event.preventDefault(); // Evita que se envíe el formulario por defecto
+          selectDesensamble.empty();
+          selectEnsamble.empty();
+          selectEmbobinado.empty();
+          selectPruebas.empty();
 
-          // Obtiene los valores de los inputs
-             var Cliente = $('#Cliente').val();
-             var Equipo = $('#Equipo').val();
-             var Fecha = $('#Fecha').val();
-             var Potencia = $('#Potencia').val();
-             var UdeM = $('#UdeM').val();
-             var RPM = $('#RPM').val();
-             var Frecuencia = $('#Frecuencia').val();
-             var Amperes = $('#Amperes').val();
-             var Armazon = $('#Armazon').val();
-             var Marca = $('#Marca').val();
-             var Serie = $('#Serie').val();
-             var Desensamble = $('#Desensamble').val();
-             var Ensamble = $('#Ensamble').val();
-             var Embobinado = $('#Embobinado').val();
-             var Pruebas = $('#Pruebas').val();
-             var Notas = $('#Notas').val();
-             var Estatus = $('#Estatus').val();
-             var Factura = $('#Factura').val();
+          selectDesensamble.append('<option value="" selected></option>');
+          selectEnsamble.append('<option value="" selected></option>');
+          selectEmbobinado.append('<option value="" selected></option>');
+          selectPruebas.append('<option value="" selected></option>');
 
-             // Crea un objeto con los datos del formulario
-             var formData =
-                  {
-                      cliente: Cliente,
-                      equipo: Equipo,
-                      fecha: Fecha,
-                      potencia: Potencia,
-                      unidadMedida: UdeM,
-                      rpm:RPM,
-                      frecuencia: Frecuencia,
-                      amperes: Amperes,
-                      armazon: Armazon,
-                      marca: Marca,
-                      serie: Serie,
-                      desensamble: Desensamble,
-                      ensamble: Ensamble,
-                      embobinado: Embobinado,
-                      pruebas: Pruebas,
-                      notas: Notas,
-                      estatus: Estatus,
-                      factura: Factura
-                  };
+          $.each(data, function(index, empleado) {
+            var opcion = '<option value="' + empleado.nombreEmpleado + '">' + empleado.nombreEmpleado + '</option>';
+            selectDesensamble.append(opcion);
+            selectEnsamble.append(opcion);
+            selectEmbobinado.append(opcion);
+            selectPruebas.append(opcion);
+          });
+        },
+        error: function() {
+          alert('Error al obtener los registros de empleados');
+        }
+      });
+    }
 
-                  // Realiza una solicitud AJAX POST al controlador
-                  $.ajax({
-                          type: 'POST',
-                          url: '/pedido',
-                          contentType: 'application/json',
-                          data: JSON.stringify(formData),
-                          success: function()
-                                 {
-                                     // La solicitud se ha realizado con éxito
-                                     alert('Pedido guardado correctamente');
-                                 },
-                                  error: function()
-                                        {
-                                          // Ocurrió un error al realizar la solicitud
-                                          alert('Error al guardar el pedido');
-                                        }
-                                  });
-                          });
+    obtenerRegistrosEmpleados();
+
+ $('form').submit(function(event) {
+      event.preventDefault();
+
+      var Cliente = $('#Cliente').val();
+      var Equipo = $('#Equipo').val();
+      var Fecha = $('#Fecha').val();
+      var Potencia = $('#Potencia').val();
+      var UdeM = $('#UdeM').val();
+      var RPM = $('#RPM').val();
+      var Frecuencia = $('#Frecuencia').val();
+      var Amperes = $('#Amperes').val();
+      var Armazon = $('#Armazon').val();
+      var Marca = $('#Marca').val();
+      var Serie = $('#Serie').val();
+      var Desensamble = $('#Desensamble').val();
+      var Ensamble = $('#Ensamble').val();
+      var Embobinado = $('#Embobinado').val();
+      var Pruebas = $('#Pruebas').val();
+      var Notas = $('#Notas').val();
+      var Estatus = $('#Estatus').val();
+      var Factura = $('#Factura').val();
+
+      var formData = {
+        cliente: Cliente,
+        equipo: Equipo,
+        fecha: Fecha,
+        potencia: Potencia,
+        unidadMedida: UdeM,
+        rpm: RPM,
+        frecuencia: Frecuencia,
+        amperes: Amperes,
+        armazon: Armazon,
+        marca: Marca,
+        serie: Serie,
+        desensamble: Desensamble,
+        ensamble: Ensamble,
+        embobinado: Embobinado,
+        pruebas: Pruebas,
+        notas: Notas,
+        estatus: Estatus,
+        factura: Factura
+      };
+
+      $.ajax({
+        type: 'POST',
+        url: '/pedido',
+        contentType: 'application/json',
+        data: JSON.stringify(formData),
+        success: function() {
+          alert('Pedido guardado correctamente');
+          location.reload();
+        },
+        error: function() {
+          alert('Error al guardar el pedido');
+        }
+      });
+    });
   });
-
 </script>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function() {
-  // Función para obtener y mostrar los registros de pedidos en la tabla
   function obtenerRegistrosPedidos(){
     $.ajax({
             type: 'GET',
             url: '/pedido',
             success: function(data)
                     {
-                      // Borra las filas existentes en la tabla
                       $('tbody').empty();
 
-                      // Itera sobre los registros de pedidos y agrega las filas a la tabla
                       $.each(data, function(index, pedido)
                             {
                                var fila = '<tr>' +
@@ -310,47 +339,41 @@ $(document).ready(function() {
                                         },
                                         error: function()
                                              {
-                                               // Ocurrió un error al obtener los registros de clientes
                                                alert('Error al obtener los registros de clientes');
                                              }
                                              });
                                              }
 
-                               // Llama a la función para obtener y mostrar los registros de clientes al cargar la página
                                obtenerRegistrosPedidos();
 
-                               // Función para eliminar la fila de la tabla correspondiente al cliente eliminado
                                function eliminarFilaPedido(clienteId) {
                                       $('tbody').find('button[data-id="' + pedidoId + '"]').closest('tr').remove();
                                       }
 
-                               // Evento para escuchar el clic en el botón "Eliminar" de cada fila de pedido y eliminar el pedido correspondiente
                                $(document).on('click', 'button.eliminar', function() {
                                var pedidoId = $(this).data('id');
 
-                               // Realiza una solicitud DELETE al controlador para eliminar el cliente
                                $.ajax({
                                        type: 'DELETE',
                                        url: '/pedido/' + pedidoId,
                                        success: function() {
-                                       // La solicitud se ha realizado con éxito
                                        alert('Pedido eliminado correctamente');
                                        eliminarFilaPedido(pedidoId);
+                                       location.reload();
                                        },
                                        error: function() {
-                                             // Ocurrió un error al eliminar el pedido
                                              alert('Error al eliminar el pedido');
                                              }
-                                             });
-                                             });
-                                      });
+                      });
+            });
+  });
 </script>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function() {
   $('#sign-out-btn').click(function() {
-    window.location.href = 'inicio.html';  // Redirige a la página "inicio.html"
+    window.location.href = 'inicio.html';
     alert('Has cerrado sesión');
   });
 });

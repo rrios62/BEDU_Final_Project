@@ -1,5 +1,5 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
+<html xmlns="http://www.w3.org/1999/html" lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -40,7 +40,6 @@
 
     </style>
 
-    <!-- Custom styles for this template -->
     <link href="headers.css" rel="stylesheet">
     <link href="signin.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
@@ -132,9 +131,11 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <td>
-                        <button class="btn btn-danger eliminar" data-id="' + cliente.id + '">Eliminar</button>
-                    </td>
+                        <tr>
+                            <td>
+                                <button class="btn btn-danger eliminar" data-id="' + cliente.id + '">Eliminar</button>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -148,16 +149,14 @@
 
 $(document).ready(function() {
 $('form').submit(function(event) {
-event.preventDefault(); // Evita que se envíe el formulario por defecto
+event.preventDefault();
 
-// Obtiene los valores de los inputs
 var cliente = $('#cliente').val();
 var contacto = $('#Contacto').val();
 var Correo = $('#Correo_C').val();
 var Telefono = $('#Telefono').val();
 var Direccion = $('#Direccion').val();
 
-// Crea un objeto con los datos del formulario
 var formData = {
 nombre: cliente,
 contacto: contacto,
@@ -166,19 +165,18 @@ telefono: Telefono,
 direccion: Direccion
 };
 
-// Realiza una solicitud AJAX POST al controlador
 $.ajax({
 type: 'POST',
 url: '/cliente',
 contentType: 'application/json',
 data: JSON.stringify(formData),
 success: function() {
-// La solicitud se ha realizado con éxito
+
 alert('Cliente guardado correctamente');
 location.reload();
 },
+
 error: function() {
-// Ocurrió un error al realizar la solicitud
 alert('Error al guardar el cliente');
 }
 });
@@ -189,16 +187,12 @@ alert('Error al guardar el cliente');
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function() {
-  // Función para obtener y mostrar los registros de clientes en la tabla
   function obtenerRegistrosClientes() {
     $.ajax({
       type: 'GET',
       url: '/cliente',
       success: function(data) {
-        // Borra las filas existentes en la tabla
         $('tbody').empty();
-
-        // Itera sobre los registros de clientes y agrega las filas a la tabla
         $.each(data, function(index, cliente) {
           var fila = '<tr>' +
             '<th scope="row">' + (index + 1) + '</th>' +
@@ -213,35 +207,28 @@ $(document).ready(function() {
         });
       },
       error: function() {
-        // Ocurrió un error al obtener los registros de clientes
         alert('Error al obtener los registros de clientes');
       }
     });
   }
 
-  // Llama a la función para obtener y mostrar los registros de clientes al cargar la página
   obtenerRegistrosClientes();
 
-   // Función para eliminar la fila de la tabla correspondiente al cliente eliminado
   function eliminarFilaCliente(clienteId) {
     $('tbody').find('button[data-id="' + clienteId + '"]').closest('tr').remove();
   }
 
-  // Evento para escuchar el clic en el botón "Eliminar" de cada fila de cliente y eliminar el cliente correspondiente
   $(document).on('click', 'button.eliminar', function() {
     var clienteId = $(this).data('id');
 
-    // Realiza una solicitud DELETE al controlador para eliminar el cliente
     $.ajax({
       type: 'DELETE',
       url: '/cliente/' + clienteId,
       success: function() {
-        // La solicitud se ha realizado con éxito
         alert('Cliente eliminado correctamente');
         eliminarFilaCliente(clienteId);
       },
       error: function() {
-        // Ocurrió un error al eliminar el cliente
         alert('Error al eliminar el cliente');
       }
     });
@@ -254,7 +241,7 @@ $(document).ready(function() {
 <script>
 $(document).ready(function() {
   $('#sign-out-btn').click(function() {
-    window.location.href = 'inicio.html';  // Redirige a la página "inicio.html"
+    window.location.href = 'inicio.html';
     alert('Has cerrado sesión');
   });
 });

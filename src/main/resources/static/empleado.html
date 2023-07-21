@@ -1,5 +1,5 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
+<html xmlns="http://www.w3.org/1999/html" lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -105,7 +105,7 @@
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon5">Número de empleado</span>
                     <input type="text" id=NumEmp class="form-control" placeholder="Número de empleado"
-                           aria-label="Número de empleado" aria-describedby="basic-addon3" pattern="[0-9]+" title="Ingrese solo números"required>
+                           aria-label="Número de empleado" aria-describedby="basic-addon3" pattern="[0-9]+" title="Ingrese solo números" required>
                 </div>
 
                 <div>
@@ -131,10 +131,11 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <td>
-                        <button class="btn btn-danger eliminar" data-id="' + empleado.id + '">Eliminar</button>
-                    </td>
-
+                        <tr>
+                            <td>
+                                <button class="btn btn-danger eliminar" data-id="' + empleado.id + '">Eliminar</button>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -231,7 +232,7 @@ $(document).ready(function() {
     $('tbody').find('button[data-id="' + empleadoId + '"]').closest('tr').remove();
   }
 
-  // Evento para escuchar el clic en el botón "Eliminar" de cada fila de empleado y eliminar el empleado correspondiente
+  // Evento para escuchar el clic en el botón "Eliminar" de cada fila de empleados y eliminar el empleado correspondiente
   $(document).on('click', 'button.eliminar', function() {
     var empleadoId = $(this).data('id');
 

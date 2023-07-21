@@ -8,7 +8,6 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/headers/">
 
-    <!-- Bootstrap core CSS -->
     <link href="bootstrap.min.css" rel="stylesheet">
     <style>
       .Logo {
@@ -37,11 +36,10 @@
       }
     </style>
 
-
-    <!-- Custom styles for this template -->
     <link href="headers.css" rel="stylesheet">
     <link href="signin.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
+
 </head>
 <body>
 
@@ -97,6 +95,15 @@
 <script src="bootstrap.bundle.min.js"></script>
 
 <script>
+   function ocultarOpcionUsuarios() {
+    var esAdministrador = false;
+    if (!esAdministrador) {
+      var opcionUsuarios = document.querySelector('a[href="/usuarios"]');
+      if (opcionUsuarios) {
+        opcionUsuarios.parentElement.style.display = 'none';
+      }
+    }
+  }
   function login() {
     var username = document.getElementById('floatingInput').value;
     var password = document.getElementById('floatingPassword').value;

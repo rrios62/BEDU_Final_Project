@@ -8,7 +8,6 @@
 
    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/headers/">
 
-    <!-- Bootstrap core CSS -->
 <link href="bootstrap.min.css" rel="stylesheet">
 
       <style>
@@ -38,7 +37,6 @@
       }
     </style>
 
-    <!-- Custom styles for this template -->
     <link href="headers.css" rel="stylesheet">
     <link href="signin.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
@@ -74,7 +72,7 @@
       <div class="container3">
           <div class="row">
 
-              <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+              <main class="col-12 ms-sm-auto">
                   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                       <h1 class="h2">Dashboard</h1>
                       <div class="btn-toolbar mb-2 mb-md-0">
@@ -88,8 +86,18 @@
                           </button>
                       </div>
                   </div>
+              </main>
+          </div>
+      </div>
+  </div>
 
-                  <canvas id="myChart"></canvas>
+
+                  <canvas id="myChart" style="width: 1300px; higth: 400px; margin: auto;"></canvas>
+
+  <div class="container">
+     <div class="container3">
+        <div class="row">
+             <div class="col-12 ms-sm-auto px-md-4">
 
                   <h2>Datos</h2>
                   <div class="table-responsive">
@@ -110,7 +118,7 @@
                           </tbody>
                       </table>
                   </div>
-              </main>
+             </div>
           </div>
       </div>
   </div>
@@ -121,16 +129,13 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function() {
-  // Función para obtener y mostrar los registros de pedidos en la tabla
   function obtenerRegistrosPedidos(){
     $.ajax({
       type: 'GET',
       url: '/pedido',
       success: function(data) {
-        // Borra las filas existentes en la tabla
         $('tbody').empty();
 
-        // Cuenta las ocurrencias de cada fecha
         var fechaCounts = {};
         $.each(data, function(index, pedido) {
           var fila = '<tr>' +
@@ -144,7 +149,6 @@ $(document).ready(function() {
             '</tr>';
           $('tbody').append(fila);
 
-          // Suma a la cuenta de la fecha
           if (pedido.fecha in fechaCounts) {
             fechaCounts[pedido.fecha]++;
           } else {
@@ -152,11 +156,9 @@ $(document).ready(function() {
           }
         });
 
-        // Prepara los datos para la gráfica
         var labels = Object.keys(fechaCounts);
         var data = Object.values(fechaCounts);
 
-        // Crea la gráfica
         var ctx = document.getElementById('myChart').getContext('2d');
         new Chart(ctx, {
           type: 'bar',
@@ -181,7 +183,6 @@ $(document).ready(function() {
 
       },
       error: function() {
-        // Ocurrió un error al obtener los registros de pedidos
         alert('Error al obtener los registros de clientes');
       }
     });
@@ -195,7 +196,7 @@ $(document).ready(function() {
 <script>
 $(document).ready(function() {
   $('#sign-out-btn').click(function() {
-    window.location.href = 'inicio.html';  // Redirige a la página "inicio.html"
+    window.location.href = 'inicio.html';
     alert('Has cerrado sesión');
   });
 });

@@ -1,5 +1,5 @@
 <!doctype html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
+<html xmlns="http://www.w3.org/1999/html" lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -113,9 +113,11 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <td>
-                        <button class="btn btn-danger eliminar" data-id="' + usuario.id + '">Eliminar</button>
-                    </td>
+                        <tr>
+                            <td>
+                                <button class="btn btn-danger eliminar" data-id="' + usuario.id + '">Eliminar</button>
+                            </td>
+                        </tr>
                     </tbody>
 
                 </table>
@@ -132,32 +134,28 @@
 
 $(document).ready(function() {
 $('form').submit(function(event) {
-event.preventDefault(); // Evita que se envíe el formulario por defecto
+event.preventDefault();
 
-// Obtiene los valores de los inputs
 var Usuario = $('#Usuario').val();
 var Passw = $('#Passw').val();
 var Rol = $('#Rol').val();
 
-// Crea un objeto con los datos del formulario
 var formData = {
 usuario: Usuario,
 passw: Passw,
 rol: Rol,
 };
 
-// Realiza una solicitud AJAX POST al controlador
 $.ajax({
 type: 'POST',
 url: '/usuario',
 contentType: 'application/json',
 data: JSON.stringify(formData),
 success: function() {
-// La solicitud se ha realizado con éxito
 alert('Usuario guardado correctamente');
+location.reload();
 },
 error: function() {
-// Ocurrió un error al realizar la solicitud
 alert('Error al guardar al usuario');
 }
 });
@@ -170,16 +168,13 @@ alert('Error al guardar al usuario');
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
 $(document).ready(function() {
-  // Función para obtener y mostrar los registros de usuarios en la tabla
   function obtenerRegistrosUsuarios() {
     $.ajax({
       type: 'GET',
       url: '/usuario',
       success: function(data) {
-        // Borra las filas existentes en la tabla
         $('tbody').empty();
 
-        // Itera sobre los registros de usuarios y agrega las filas a la tabla
         $.each(data, function(index, usuario) {
           var fila = '<tr>' +
             '<th scope="row">' + (index + 1) + '</th>' +
@@ -192,35 +187,28 @@ $(document).ready(function() {
         });
       },
       error: function() {
-        // Ocurrió un error al obtener los registros de usuarioses
         alert('Error al obtener los registros de usuarios');
       }
     });
   }
 
-  // Llama a la función para obtener y mostrar los registros de usuarios al cargar la página
   obtenerRegistrosUsuarios();
 
-   // Función para eliminar la fila de la tabla correspondiente al usuario eliminado
   function eliminarFilaUsuario(usuarioId) {
     $('tbody').find('button[data-id="' + usuarioId + '"]').closest('tr').remove();
   }
 
-  // Evento para escuchar el clic en el botón "Eliminar" de cada fila de usuario y eliminar el usuario correspondiente
   $(document).on('click', 'button.eliminar', function() {
     var usuarioId = $(this).data('id');
 
-    // Realiza una solicitud DELETE al controlador para eliminar el usuario
     $.ajax({
       type: 'DELETE',
       url: '/usuario/' + usuarioId,
       success: function() {
-        // La solicitud se ha realizado con éxito
-        alert('Usuarioe eliminado correctamente');
+        alert('Usuario eliminado correctamente');
         eliminarFilaUsuarioe(usuarioId);
       },
       error: function() {
-        // Ocurrió un error al eliminar el usuario
         alert('Error al eliminar el usuario');
       }
     });
@@ -233,7 +221,7 @@ $(document).ready(function() {
 <script>
 $(document).ready(function() {
   $('#sign-out-btn').click(function() {
-    window.location.href = 'inicio.html';  // Redirige a la página "inicio.html"
+    window.location.href = 'inicio.html';
     alert('Has cerrado sesión');
   });
 });
