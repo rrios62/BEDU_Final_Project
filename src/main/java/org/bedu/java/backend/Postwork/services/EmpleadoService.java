@@ -10,6 +10,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.bedu.java.backend.Postwork.DTO.EmpleadoDTO;
+
 @Service
 @RequiredArgsConstructor
 public class EmpleadoService {
@@ -43,5 +45,13 @@ public class EmpleadoService {
                 repository.save(mapper.empleadoModelToEmpleadoEntity(empleado))
         );
     }
+
+    public List<EmpleadoDTO> obtenerTodosLosEmpleadosDto() {
+        return repository.findAll().stream()
+                .map(empleado -> new EmpleadoDTO(empleado.getId(), empleado.getNombreEmpleado()))
+                .collect(Collectors.toList());
+    }
+
+
 
 }
