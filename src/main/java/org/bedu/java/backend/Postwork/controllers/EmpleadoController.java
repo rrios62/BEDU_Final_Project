@@ -1,5 +1,6 @@
 package org.bedu.java.backend.Postwork.controllers;
 
+import org.bedu.java.backend.Postwork.DTO.EmpleadoDTO;
 import org.bedu.java.backend.Postwork.model.Empleado;
 import org.bedu.java.backend.Postwork.services.EmpleadoService;
 
@@ -54,5 +55,9 @@ public class EmpleadoController {
     public ResponseEntity<Void> deleteEmpleado(@PathVariable Long empleadoId) {
         empleadoService.deleteEmpleado(empleadoId);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+    }
+    @GetMapping("/empleadosdto")
+    public ResponseEntity<List<EmpleadoDTO>> obtenerTodosLosEmpleadosDto() {
+        return ResponseEntity.ok(empleadoService.obtenerTodosLosEmpleadosDto());
     }
 }
