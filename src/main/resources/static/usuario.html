@@ -6,11 +6,8 @@
     <meta name="description" content="">
     <title>Bari Electro Control</title>
 
-
-
     --<link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/headers/">-
 
-    <!-- Bootstrap core CSS -->
     <link href="bootstrap.min.css" rel="stylesheet">
 
     <style>
@@ -40,20 +37,20 @@
       }
     </style>
 
-    <!-- Custom styles for this template -->
     <link href="headers.css" rel="stylesheet">
     <link href="signin.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
 </head>
+<!-- /////////////////////// Inicio del menu /////////////////-->
 <body>
-
-
 <main>
     <section>
         <div class="container">
             <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
                 <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+                    <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
+                        <use xlink:href="#bootstrap"/>
+                    </svg>
                 </a>
 
                 <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
@@ -69,10 +66,13 @@
                     <button id="sign-out-btn" type="button" class="btn btn-primary">Sign-out</button>
                 </div>
             </header>
+            <!-- /////////////////////// fin del menu /////////////////-->
             <img src="BEC-.png" class="Logo" alt="...">
 
+            <h1>Agregar usuario:</h1>
+
             <form action="\usuario" method="post">
-                <h1>Agregar usuario:</h1>
+
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">Usuario</span>
                     <input type="text" id="Usuario" class="form-control" placeholder="Usuario" aria-label="Usuario" aria-describedby="basic-addon1" required>
@@ -167,6 +167,11 @@ alert('Error al guardar al usuario');
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
+function maskPassword(password) {
+  return '*'.repeat(password.length);
+}
+
+
 $(document).ready(function() {
   function obtenerRegistrosUsuarios() {
     $.ajax({
@@ -179,7 +184,7 @@ $(document).ready(function() {
           var fila = '<tr>' +
             '<th scope="row">' + (index + 1) + '</th>' +
             '<td>' + usuario.usuario + '</td>' +
-            '<td>' + usuario.passw + '</td>' +
+            '<td>' +  maskPassword(usuario.passw) + '</td>' +
             '<td>' + usuario.rol + '</td>' +
             '<td><button class="btn btn-danger eliminar" data-id="' + usuario.id + '">Eliminar</button></td>' +
 '</tr>';
